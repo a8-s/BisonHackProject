@@ -2,25 +2,106 @@
 
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-<h2>JavaScript in Body</h2>
+<h2>My Portal</h2>
 
 <p id="demo"></p>
 
 <script>
+function handleData(data){
+var obj = JSON.parse(JSON.stringify(data));
+console.log(obj);
+//$("#user").text(obj.data.messages[0].to)
+}
 
 $( document ).ready(function() {
     console.log( "ready!" );
     $( "#target" ).click(function() {
   console.log( "Handler for .click() called." );
+     $.ajax({
+    type: "POST",
+    url: "/send-help",
+    success: handleData
+    
+  
+});
 });
 });
 
 </script>
 
-<button type="button" id="target">Click Me!</button>
+<button type="button" id="target">Help Needed</button>
+<p> <span id=user></span>  </p>
  
 </body>
+
+
+<div class="container-fluid"> 
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body" id="Row1">
+          <h5 class="card-title">Hours Sourced</h5>
+          <p class="card-text" style="font-size:6em;text-align:center;margin-top:-20px">23</p>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body" id="Row1">
+          <h5 class="card-title">Hours Needed</h5>
+          <p class="card-text" style="font-size:6em;text-align:center;margin-top:-20px">15<i class="fa fa-arrow-down" aria-hidden="true"></i></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body" id="Row1">
+          <h5 class="card-title">Avialable Trusted Contacts</h5>
+          <p class="card-text" style="font-size:6em;text-align:center;margin-top:-20px">4</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6" >
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d222956.1460761856!2d-82.29689329564486!3d29.173812511425073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e62b541cba3ce5%3A0xf5f53be4b1380536!2sOcala%2C+FL!5e0!3m2!1sen!2sus!4v1563387105323!5m2!1sen!2sus" width="100%" height="100%" frameborder="0" style="border:0" id="Row2" allowfullscreen></iframe>
+    </div>
+    <div class="col-sm-6">
+      <table class="table" id="Row2">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Availability</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Anj</td>
+            <td>Sri</td>
+            <td>9-5</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>4:30-7</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Lina</td>
+            <td>Walsh</td>
+            <td>1-2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   
+  </div>
+</div>
+
 </html> 
